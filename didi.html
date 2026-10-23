@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="my">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For My Love ❤️</title>
+
+<style>
+    body {
+        margin: 0;
+        padding: 20px;
+        min-height: 100vh;
+        box-sizing: border-box;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: Arial, sans-serif;
+        background: linear-gradient(135deg, #ffd6e7, #e6d6ff);
+        overflow-x: hidden;
+    }
+
+    .card {
+        background: rgba(255,255,255,0.92);
+        max-width: 430px;
+        width: 100%;
+        padding: 28px 22px;
+        border-radius: 25px;
+        text-align: center;
+        box-shadow: 0 8px 30px rgba(160,70,120,0.2);
+        box-sizing: border-box;
+        position: relative;
+        z-index: 2;
+    }
+
+    h1 {
+        color: #e75480;
+        font-size: 27px;
+    }
+
+    .heart {
+        font-size: 65px;
+        animation: beat 1s infinite;
+    }
+
+    @keyframes beat {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.2); }
+    }
+
+    #letter {
+        display: none;
+        color: #6b4055;
+        line-height: 2;
+        text-align: left;
+        white-space: pre-line;
+        margin-top: 20px;
+        font-size: 16px;
+    }
+
+    button {
+        background: #e75480;
+        color: white;
+        border: none;
+        padding: 13px 22px;
+        border-radius: 25px;
+        font-size: 16px;
+        cursor: pointer;
+        margin-top: 15px;
+    }
+
+    .floating {
+        position: fixed;
+        bottom: -30px;
+        animation: floatUp 6s linear infinite;
+        opacity: 0.7;
+        z-index: 1;
+        pointer-events: none;
+    }
+
+    @keyframes floatUp {
+        from {
+            transform: translateY(0) rotate(0deg);
+            opacity: 0.8;
+        }
+        to {
+            transform: translateY(-110vh) rotate(30deg);
+            opacity: 0;
+        }
+    }
+</style>
+</head>
+
+<body>
+
+<div class="card">
+    <div class="heart">❤️</div>
+
+    <h1>ကိုယ့်အကောင်ပေါက်လေးဆီ 💌</h1>
+
+    <p>ကိုယ်ပေးချင်တဲ့ စာလေးရှိတယ်နော်...</p>
+
+    <button onclick="openLetter()">စာလေးဖွင့်ကြည့်ပါ 🖤</button>
+
+    <div id="letter">
+အကောင်ပေါက်လေးရေ🖤🦎
+
+သဲဘဝထဲကို ရောက်လာပေးလို့ ကျေးဇူးတင်တယ်နော်။
+ကိုကိုပျော်တဲ့အချိန်တွေမှာလည်း သဲနဲ့အတူ ပျော်ပေးပြီး
+သဲစိတ်ညစ်တဲ့အချိန်တွေမှာလည်း အနားမှာရှိနေပေးပါ။
+
+တစ်ခါတလေ သဲက စိတ်ကောက်မိတာတွေ၊
+ကလေးဆန်တာတွေ ရှိနိုင်ပေမယ့်
+သဲရင်ထဲမှာတော့ ကိုကို့ တကယ်ချစ်တယ်။
+
+အနာဂတ်မှာ ဘာတွေကြုံရမလဲ မသိပေမယ့်
+နှစ်ယောက်အတူ နားလည်ပေးရင်း
+လက်တွဲပြီး ရှေ့ဆက်သွားချင်တယ်။
+
+ကိုကိုပင်ပန်းတဲ့နေ့တွေမှာလည်း
+သဲဆီလာပြီး အေးအေးချမ်းချမ်း နားလို့ရတယ်နော်
+သဲက ကိုကို့ရဲ့ချစ်သူတင်မကဘဲ
+ကိုကို့အတွက် စိတ်ချလက်ချ မှီခိုလို့ရတဲ့သူလေးလည်း ဖြစ်ချင်တယ်။
+
+အများကြီးချစ်တယ်နော်
+အကောင်ပေါက်လေး 🦎
+
+        — ကိုကို့ ကိုချစ်တဲ့ ကိုကို့လူဆိုးမ
+    </div>
+
+    <p style="color:#e75480; font-size:13px;">
+        Made with love, just for you ♡
+    </p>
+</div>
+
+<script>
+    function openLetter() {
+        const letter = document.getElementById("letter");
+
+        if (letter.style.display === "block") {
+            letter.style.display = "none";
+        } else {
+            letter.style.display = "block";
+        }
+    }
+
+    const hearts = ["🖤", "🦎", "🖤", "🦎", "🖤"];
+
+    setInterval(function() {
+        const heart = document.createElement("div");
+        heart.className = "floating";
+        heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.fontSize = (18 + Math.random() * 20) + "px";
+        heart.style.animationDuration = (4 + Math.random() * 4) + "s";
+
+        document.body.appendChild(heart);
+
+        setTimeout(function() {
+            heart.remove();
+        }, 8000);
+    }, 500);
+</script>
+
+</body>
+</html>
